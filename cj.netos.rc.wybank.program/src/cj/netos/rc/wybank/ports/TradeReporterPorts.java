@@ -1,6 +1,5 @@
 package cj.netos.rc.wybank.ports;
 
-import cj.netos.rabbitmq.RabbitMQException;
 import cj.netos.rc.wybank.ITradeReporterService;
 import cj.netos.rc.wybank.bo.WenyBankBO;
 import cj.netos.rc.wybank.model.ExchangeIndex;
