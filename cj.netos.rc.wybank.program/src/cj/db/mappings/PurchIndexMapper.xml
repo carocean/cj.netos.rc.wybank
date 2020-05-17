@@ -430,4 +430,11 @@
       bankid = #{bankid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
+  <select id="pageIndex" parameterType="cj.netos.rc.wybank.model.PurchIndex" resultMap="BaseResultMap">
+    select
+   *
+    from purch_index
+    limit #{offset},#{limit}
+  </select>
 </mapper>

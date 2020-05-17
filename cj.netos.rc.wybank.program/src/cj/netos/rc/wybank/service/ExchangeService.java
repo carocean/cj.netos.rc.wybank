@@ -35,7 +35,9 @@ public class ExchangeService implements IExchangeService {
     }
 
 
-    private ExchangeIndex getAndInitIndex(String bankid) {
+    @CjTransaction
+    @Override
+    public ExchangeIndex getAndInitIndex(String bankid) {
         ExchangeIndexExample example = new ExchangeIndexExample();
         example.createCriteria().andBankidEqualTo(bankid);
         List<ExchangeIndex> list = exchangeIndexMapper.selectByExample(example);
@@ -98,5 +100,17 @@ public class ExchangeService implements IExchangeService {
         exchangeIndex.setReclaimStock(exchangeIndex.getReclaimStock().add(record.getStock()));
 
         exchangeIndexMapper.updateByPrimaryKeySelective(exchangeIndex);
+    }
+
+    @CjTransaction
+    @Override
+    public List<ExchangeLedger> pageLedger(String wenyBankid, int limit, int offset) {
+        return exchangeLedgerMapper.pageledger(wenyBankid, limit, offset);
+    }
+
+    @CjTransaction
+    @Override
+    public List<ExchangeIndex> pageIndex(int limit, int offset) {
+        return exchangeIndexMapper.pageIndex(limit, offset);
     }
 }

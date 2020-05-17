@@ -61,4 +61,7 @@ public interface ExchangeIndexMapper {
      * @mbg.generated generated automatically, do not modify!
      */
     int updateByPrimaryKey(ExchangeIndex record);
+
+    List<ExchangeIndex> pageIndex(@Param(value = "limit") int limit,@Param(value = "offset") int offset);
+
 }

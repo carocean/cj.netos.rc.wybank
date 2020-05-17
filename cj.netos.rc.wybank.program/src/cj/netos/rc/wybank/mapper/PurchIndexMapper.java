@@ -61,4 +61,7 @@ public interface PurchIndexMapper {
      * @mbg.generated generated automatically, do not modify!
      */
     int updateByPrimaryKey(PurchIndex record);
+
+    List<PurchIndex> pageIndex(@Param(value = "limit") int limit,@Param(value = "offset") int offset);
+
 }

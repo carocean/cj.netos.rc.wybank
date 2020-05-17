@@ -335,4 +335,12 @@
       exchange_count = #{exchangeCount,jdbcType=BIGINT}
     where sn = #{sn,jdbcType=VARCHAR}
   </update>
+
+  <select id="pageledger" parameterType="cj.netos.rc.wybank.model.ExchangeLedger" resultMap="BaseResultMap">
+    select
+    *
+    from exchange_ledger
+    where bankid = #{bankid,jdbcType=VARCHAR}
+    limit #{offset},#{limit}
+  </select>
 </mapper>

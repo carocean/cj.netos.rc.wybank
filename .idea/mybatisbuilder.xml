@@ -87,7 +87,7 @@
         <option name="javaModelConfig">
           <JavaModelGeneratorConfiguration>
             <option name="targetPackage" value="cj.netos.rc.wybank.model" />
-            <option name="targetProject" value="$PROJECT_DIR$/cj.netos.rc.wybank.program/src" />
+            <option name="targetProject" value="$PROJECT_DIR$/cj.netos.rc.wybank.openports/src" />
           </JavaModelGeneratorConfiguration>
         </option>
         <option name="sqlMapConfig">

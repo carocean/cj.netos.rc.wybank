@@ -397,4 +397,12 @@
       fee_amount = #{feeAmount,jdbcType=BIGINT}
     where sn = #{sn,jdbcType=VARCHAR}
   </update>
+
+  <select id="pageLedger" parameterType="cj.netos.rc.wybank.model.PurchLedger" resultMap="BaseResultMap">
+    select
+    *
+    from purch_ledger
+    where bankid = #{bankid,jdbcType=VARCHAR}
+    limit #{offset},#{limit}
+  </select>
 </mapper>

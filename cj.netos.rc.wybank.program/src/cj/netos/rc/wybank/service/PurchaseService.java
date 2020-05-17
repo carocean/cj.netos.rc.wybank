@@ -3,10 +3,7 @@ package cj.netos.rc.wybank.service;
 import cj.netos.rc.wybank.IPurchaseService;
 import cj.netos.rc.wybank.mapper.PurchIndexMapper;
 import cj.netos.rc.wybank.mapper.PurchLedgerMapper;
-import cj.netos.rc.wybank.model.PurchIndex;
-import cj.netos.rc.wybank.model.PurchIndexExample;
-import cj.netos.rc.wybank.model.PurchLedger;
-import cj.netos.rc.wybank.model.PurchaseRecord;
+import cj.netos.rc.wybank.model.*;
 import cj.netos.rc.wybank.util.BankUtils;
 import cj.netos.rc.wybank.util.IdWorker;
 import cj.studio.ecm.annotation.CjBridge;
@@ -35,8 +32,9 @@ public class PurchaseService implements IPurchaseService {
 
     }
 
-
-    private PurchIndex getAndInitPurchIndex(String bankid) {
+    @CjTransaction
+    @Override
+    public PurchIndex getAndInitPurchIndex(String bankid) {
         PurchIndexExample example = new PurchIndexExample();
         example.createCriteria().andBankidEqualTo(bankid);
         List<PurchIndex> list = purchIndexMapper.selectByExample(example);
@@ -104,14 +102,14 @@ public class PurchaseService implements IPurchaseService {
         purchIndex.setWeekday(calendar.get(Calendar.WEEK_OF_YEAR));
         purchIndex.setSeason(purchIndex.getMonth() % 4);
 
-        purchIndex.setPurchFund(purchIndex.getPurchFund()+record.getAmount());
-        purchIndex.setPurchCount(purchIndex.getPurchCount()+1);
+        purchIndex.setPurchFund(purchIndex.getPurchFund() + record.getAmount());
+        purchIndex.setPurchCount(purchIndex.getPurchCount() + 1);
         purchIndex.setIssueStock(purchIndex.getIssueStock().add(record.getStock()));
-        purchIndex.setPrincipal(purchIndex.getPrincipal()+record.getPrincipalAmount());
+        purchIndex.setPrincipal(purchIndex.getPrincipal() + record.getPrincipalAmount());
         purchIndex.setReserve(purchIndex.getReserve() + record.getReserveAmount());
-        purchIndex.setFeeAmount(purchIndex.getFeeAmount()+record.getServiceFee());
-        purchIndex.setFreeAmount(purchIndex.getFreeAmount()+record.getFreeAmount());
-        if (record.getAmount() < purchIndex.getMinRecordAmount()||StringUtil.isEmpty(purchIndex.getMinRecordSn())) {
+        purchIndex.setFeeAmount(purchIndex.getFeeAmount() + record.getServiceFee());
+        purchIndex.setFreeAmount(purchIndex.getFreeAmount() + record.getFreeAmount());
+        if (record.getAmount() < purchIndex.getMinRecordAmount() || StringUtil.isEmpty(purchIndex.getMinRecordSn())) {
             purchIndex.setMinRecordAmount(record.getAmount());
             purchIndex.setMinRecordSn(record.getSn());
         }
@@ -121,5 +119,17 @@ public class PurchaseService implements IPurchaseService {
         }
 
         purchIndexMapper.updateByPrimaryKeySelective(purchIndex);
+    }
+
+    @CjTransaction
+    @Override
+    public List<PurchLedger> pageLedger(String wenyBankid, int limit, int offset) {
+        return purchLedgerMapper.pageLedger(wenyBankid, limit, offset);
+    }
+
+    @CjTransaction
+    @Override
+    public List<PurchIndex> pageIndex(int limit, int offset) {
+        return purchIndexMapper.pageIndex(limit, offset);
     }
 }

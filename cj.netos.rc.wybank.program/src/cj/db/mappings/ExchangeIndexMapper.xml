@@ -303,4 +303,11 @@
       bankid = #{bankid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
+  <select id="pageIndex" parameterType="cj.netos.rc.wybank.model.ExchangeIndex" resultMap="BaseResultMap">
+    select
+     *
+    from exchange_index
+    limit #{offset},#{limit}
+  </select>
 </mapper>

@@ -61,4 +61,7 @@ public interface ExchangeLedgerMapper {
      * @mbg.generated generated automatically, do not modify!
      */
     int updateByPrimaryKey(ExchangeLedger record);
+
+    List<ExchangeLedger> pageledger(@Param(value = "bankid") String bankid, @Param(value = "limit") int limit,@Param(value = "offset") int offset);
+
 }
