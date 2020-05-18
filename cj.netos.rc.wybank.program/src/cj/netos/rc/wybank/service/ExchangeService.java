@@ -1,11 +1,9 @@
 package cj.netos.rc.wybank.service;
 
 import cj.netos.rc.wybank.IExchangeService;
-import cj.netos.rc.wybank.IPurchaseService;
+import cj.netos.rc.wybank.bo.model.ExchangeRecord;
 import cj.netos.rc.wybank.mapper.ExchangeIndexMapper;
 import cj.netos.rc.wybank.mapper.ExchangeLedgerMapper;
-import cj.netos.rc.wybank.mapper.PurchIndexMapper;
-import cj.netos.rc.wybank.mapper.PurchLedgerMapper;
 import cj.netos.rc.wybank.model.*;
 import cj.netos.rc.wybank.util.BankUtils;
 import cj.netos.rc.wybank.util.IdWorker;

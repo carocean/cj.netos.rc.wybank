@@ -62,6 +62,5 @@ public interface PurchIndexMapper {
      */
     int updateByPrimaryKey(PurchIndex record);
 
-    List<PurchIndex> pageIndex(@Param(value = "limit") int limit,@Param(value = "offset") int offset);
-
+    List<PurchIndex> pageIndex(@Param(value = "limit") int limit, @Param(value = "offset") int offset);
 }

@@ -1,6 +1,7 @@
 package cj.netos.rc.wybank.service;
 
 import cj.netos.rc.wybank.IPurchaseService;
+import cj.netos.rc.wybank.bo.model.PurchaseRecord;
 import cj.netos.rc.wybank.mapper.PurchIndexMapper;
 import cj.netos.rc.wybank.mapper.PurchLedgerMapper;
 import cj.netos.rc.wybank.model.*;

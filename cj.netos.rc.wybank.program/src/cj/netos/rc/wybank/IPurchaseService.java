@@ -1,7 +1,7 @@
 package cj.netos.rc.wybank;
 
+import cj.netos.rc.wybank.bo.model.PurchaseRecord;
 import cj.netos.rc.wybank.model.*;
-import cj.studio.orm.mybatis.annotation.CjTransaction;
 
 import java.util.List;
 

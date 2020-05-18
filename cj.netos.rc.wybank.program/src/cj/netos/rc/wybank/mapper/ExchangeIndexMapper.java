@@ -62,6 +62,5 @@ public interface ExchangeIndexMapper {
      */
     int updateByPrimaryKey(ExchangeIndex record);
 
-    List<ExchangeIndex> pageIndex(@Param(value = "limit") int limit,@Param(value = "offset") int offset);
-
+    List<ExchangeIndex> pageIndex(@Param(value = "limit") int limit, @Param(value = "offset") int offset);
 }

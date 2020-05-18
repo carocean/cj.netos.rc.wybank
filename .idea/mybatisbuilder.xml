@@ -180,6 +180,46 @@
             </TableInfo>
           </value>
         </entry>
+        <entry key="netos.weny.report#shuntin_index">
+          <value>
+            <TableInfo>
+              <option name="database" value="netos.weny.report" />
+              <option name="domainName" value="ShuntinIndex" />
+              <option name="tableComment" value="各分账器分得的总金额" />
+              <option name="tableName" value="shuntin_index" />
+            </TableInfo>
+          </value>
+        </entry>
+        <entry key="netos.weny.report#shuntin_ledger">
+          <value>
+            <TableInfo>
+              <option name="database" value="netos.weny.report" />
+              <option name="domainName" value="ShuntinLedger" />
+              <option name="tableComment" value="分账收入台账" />
+              <option name="tableName" value="shuntin_ledger" />
+            </TableInfo>
+          </value>
+        </entry>
+        <entry key="netos.weny.report#withdraw_index">
+          <value>
+            <TableInfo>
+              <option name="database" value="netos.weny.report" />
+              <option name="domainName" value="WithdrawIndex" />
+              <option name="tableComment" value="各分账器分得的总金额" />
+              <option name="tableName" value="withdraw_index" />
+            </TableInfo>
+          </value>
+        </entry>
+        <entry key="netos.weny.report#withdraw_ledger">
+          <value>
+            <TableInfo>
+              <option name="database" value="netos.weny.report" />
+              <option name="domainName" value="WithdrawLedger" />
+              <option name="tableComment" value="分账收入台账" />
+              <option name="tableName" value="withdraw_ledger" />
+            </TableInfo>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

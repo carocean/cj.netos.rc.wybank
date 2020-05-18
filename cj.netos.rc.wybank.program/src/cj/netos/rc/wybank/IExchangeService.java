@@ -2,7 +2,7 @@ package cj.netos.rc.wybank;
 
 import cj.netos.rc.wybank.model.ExchangeIndex;
 import cj.netos.rc.wybank.model.ExchangeLedger;
-import cj.netos.rc.wybank.model.ExchangeRecord;
+import cj.netos.rc.wybank.bo.model.ExchangeRecord;
 
 import java.util.List;
 

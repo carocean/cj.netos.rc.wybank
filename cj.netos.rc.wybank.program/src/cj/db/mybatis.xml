@@ -34,9 +34,9 @@
         <mapper resource="cj/db/mappings/ExchangeLedgerMapper.xml"/>
         <mapper resource="cj/db/mappings/PurchIndexMapper.xml"/>
         <mapper resource="cj/db/mappings/PurchLedgerMapper.xml"/>
-        <mapper resource="cj/db/mappings/ShunterIndexDetailsMapper.xml"/>
-        <mapper resource="cj/db/mappings/ShunterIndexMapper.xml"/>
-        <mapper resource="cj/db/mappings/ShunterLedgeDetailsMapper.xml"/>
-        <mapper resource="cj/db/mappings/ShunterLedgerMapper.xml"/>
+        <mapper resource="cj/db/mappings/ShuntinIndexMapper.xml"/>
+        <mapper resource="cj/db/mappings/ShuntinLedgerMapper.xml"/>
+        <mapper resource="cj/db/mappings/WithdrawIndexMapper.xml"/>
+        <mapper resource="cj/db/mappings/WithdrawLedgerMapper.xml"/>
     </mappers>
 </configuration>

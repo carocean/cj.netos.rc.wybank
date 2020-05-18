@@ -2,9 +2,7 @@ package cj.netos.rc.wybank.mapper;
 
 import cj.netos.rc.wybank.model.PurchLedger;
 import cj.netos.rc.wybank.model.PurchLedgerExample;
-
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface PurchLedgerMapper {
@@ -65,5 +63,4 @@ public interface PurchLedgerMapper {
     int updateByPrimaryKey(PurchLedger record);
 
     List<PurchLedger> pageLedger(@Param(value = "bankid") String bankid, @Param(value = "limit") int limit, @Param(value = "offset") int offset);
-
 }

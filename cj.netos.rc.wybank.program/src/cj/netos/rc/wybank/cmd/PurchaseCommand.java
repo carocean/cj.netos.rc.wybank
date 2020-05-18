@@ -5,7 +5,7 @@ import cj.netos.rabbitmq.RabbitMQException;
 import cj.netos.rabbitmq.RetryCommandException;
 import cj.netos.rabbitmq.consumer.IConsumerCommand;
 import cj.netos.rc.wybank.IPurchaseService;
-import cj.netos.rc.wybank.model.PurchaseRecord;
+import cj.netos.rc.wybank.bo.model.PurchaseRecord;
 import cj.studio.ecm.annotation.CjService;
 import cj.studio.ecm.annotation.CjServiceRef;
 import cj.ultimate.gson2.com.google.gson.Gson;
