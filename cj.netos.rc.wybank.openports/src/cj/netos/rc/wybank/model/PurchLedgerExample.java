@@ -1177,6 +1177,306 @@ public class PurchLedgerExample {
             addCriterion("fee_amount not between", value1, value2, "feeAmount");
             return (Criteria) this;
         }
+
+        public Criteria andDayIsNull() {
+            addCriterion("`day` is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDayIsNotNull() {
+            addCriterion("`day` is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDayEqualTo(Integer value) {
+            addCriterion("`day` =", value, "day");
+            return (Criteria) this;
+        }
+
+        public Criteria andDayNotEqualTo(Integer value) {
+            addCriterion("`day` <>", value, "day");
+            return (Criteria) this;
+        }
+
+        public Criteria andDayGreaterThan(Integer value) {
+            addCriterion("`day` >", value, "day");
+            return (Criteria) this;
+        }
+
+        public Criteria andDayGreaterThanOrEqualTo(Integer value) {
+            addCriterion("`day` >=", value, "day");
+            return (Criteria) this;
+        }
+
+        public Criteria andDayLessThan(Integer value) {
+            addCriterion("`day` <", value, "day");
+            return (Criteria) this;
+        }
+
+        public Criteria andDayLessThanOrEqualTo(Integer value) {
+            addCriterion("`day` <=", value, "day");
+            return (Criteria) this;
+        }
+
+        public Criteria andDayIn(List<Integer> values) {
+            addCriterion("`day` in", values, "day");
+            return (Criteria) this;
+        }
+
+        public Criteria andDayNotIn(List<Integer> values) {
+            addCriterion("`day` not in", values, "day");
+            return (Criteria) this;
+        }
+
+        public Criteria andDayBetween(Integer value1, Integer value2) {
+            addCriterion("`day` between", value1, value2, "day");
+            return (Criteria) this;
+        }
+
+        public Criteria andDayNotBetween(Integer value1, Integer value2) {
+            addCriterion("`day` not between", value1, value2, "day");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeekdayIsNull() {
+            addCriterion("weekday is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeekdayIsNotNull() {
+            addCriterion("weekday is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeekdayEqualTo(Integer value) {
+            addCriterion("weekday =", value, "weekday");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeekdayNotEqualTo(Integer value) {
+            addCriterion("weekday <>", value, "weekday");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeekdayGreaterThan(Integer value) {
+            addCriterion("weekday >", value, "weekday");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeekdayGreaterThanOrEqualTo(Integer value) {
+            addCriterion("weekday >=", value, "weekday");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeekdayLessThan(Integer value) {
+            addCriterion("weekday <", value, "weekday");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeekdayLessThanOrEqualTo(Integer value) {
+            addCriterion("weekday <=", value, "weekday");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeekdayIn(List<Integer> values) {
+            addCriterion("weekday in", values, "weekday");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeekdayNotIn(List<Integer> values) {
+            addCriterion("weekday not in", values, "weekday");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeekdayBetween(Integer value1, Integer value2) {
+            addCriterion("weekday between", value1, value2, "weekday");
+            return (Criteria) this;
+        }
+
+        public Criteria andWeekdayNotBetween(Integer value1, Integer value2) {
+            addCriterion("weekday not between", value1, value2, "weekday");
+            return (Criteria) this;
+        }
+
+        public Criteria andMonthIsNull() {
+            addCriterion("`month` is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMonthIsNotNull() {
+            addCriterion("`month` is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMonthEqualTo(Integer value) {
+            addCriterion("`month` =", value, "month");
+            return (Criteria) this;
+        }
+
+        public Criteria andMonthNotEqualTo(Integer value) {
+            addCriterion("`month` <>", value, "month");
+            return (Criteria) this;
+        }
+
+        public Criteria andMonthGreaterThan(Integer value) {
+            addCriterion("`month` >", value, "month");
+            return (Criteria) this;
+        }
+
+        public Criteria andMonthGreaterThanOrEqualTo(Integer value) {
+            addCriterion("`month` >=", value, "month");
+            return (Criteria) this;
+        }
+
+        public Criteria andMonthLessThan(Integer value) {
+            addCriterion("`month` <", value, "month");
+            return (Criteria) this;
+        }
+
+        public Criteria andMonthLessThanOrEqualTo(Integer value) {
+            addCriterion("`month` <=", value, "month");
+            return (Criteria) this;
+        }
+
+        public Criteria andMonthIn(List<Integer> values) {
+            addCriterion("`month` in", values, "month");
+            return (Criteria) this;
+        }
+
+        public Criteria andMonthNotIn(List<Integer> values) {
+            addCriterion("`month` not in", values, "month");
+            return (Criteria) this;
+        }
+
+        public Criteria andMonthBetween(Integer value1, Integer value2) {
+            addCriterion("`month` between", value1, value2, "month");
+            return (Criteria) this;
+        }
+
+        public Criteria andMonthNotBetween(Integer value1, Integer value2) {
+            addCriterion("`month` not between", value1, value2, "month");
+            return (Criteria) this;
+        }
+
+        public Criteria andSeasonIsNull() {
+            addCriterion("season is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSeasonIsNotNull() {
+            addCriterion("season is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSeasonEqualTo(Integer value) {
+            addCriterion("season =", value, "season");
+            return (Criteria) this;
+        }
+
+        public Criteria andSeasonNotEqualTo(Integer value) {
+            addCriterion("season <>", value, "season");
+            return (Criteria) this;
+        }
+
+        public Criteria andSeasonGreaterThan(Integer value) {
+            addCriterion("season >", value, "season");
+            return (Criteria) this;
+        }
+
+        public Criteria andSeasonGreaterThanOrEqualTo(Integer value) {
+            addCriterion("season >=", value, "season");
+            return (Criteria) this;
+        }
+
+        public Criteria andSeasonLessThan(Integer value) {
+            addCriterion("season <", value, "season");
+            return (Criteria) this;
+        }
+
+        public Criteria andSeasonLessThanOrEqualTo(Integer value) {
+            addCriterion("season <=", value, "season");
+            return (Criteria) this;
+        }
+
+        public Criteria andSeasonIn(List<Integer> values) {
+            addCriterion("season in", values, "season");
+            return (Criteria) this;
+        }
+
+        public Criteria andSeasonNotIn(List<Integer> values) {
+            addCriterion("season not in", values, "season");
+            return (Criteria) this;
+        }
+
+        public Criteria andSeasonBetween(Integer value1, Integer value2) {
+            addCriterion("season between", value1, value2, "season");
+            return (Criteria) this;
+        }
+
+        public Criteria andSeasonNotBetween(Integer value1, Integer value2) {
+            addCriterion("season not between", value1, value2, "season");
+            return (Criteria) this;
+        }
+
+        public Criteria andYeerIsNull() {
+            addCriterion("yeer is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andYeerIsNotNull() {
+            addCriterion("yeer is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andYeerEqualTo(Integer value) {
+            addCriterion("yeer =", value, "yeer");
+            return (Criteria) this;
+        }
+
+        public Criteria andYeerNotEqualTo(Integer value) {
+            addCriterion("yeer <>", value, "yeer");
+            return (Criteria) this;
+        }
+
+        public Criteria andYeerGreaterThan(Integer value) {
+            addCriterion("yeer >", value, "yeer");
+            return (Criteria) this;
+        }
+
+        public Criteria andYeerGreaterThanOrEqualTo(Integer value) {
+            addCriterion("yeer >=", value, "yeer");
+            return (Criteria) this;
+        }
+
+        public Criteria andYeerLessThan(Integer value) {
+            addCriterion("yeer <", value, "yeer");
+            return (Criteria) this;
+        }
+
+        public Criteria andYeerLessThanOrEqualTo(Integer value) {
+            addCriterion("yeer <=", value, "yeer");
+            return (Criteria) this;
+        }
+
+        public Criteria andYeerIn(List<Integer> values) {
+            addCriterion("yeer in", values, "yeer");
+            return (Criteria) this;
+        }
+
+        public Criteria andYeerNotIn(List<Integer> values) {
+            addCriterion("yeer not in", values, "yeer");
+            return (Criteria) this;
+        }
+
+        public Criteria andYeerBetween(Integer value1, Integer value2) {
+            addCriterion("yeer between", value1, value2, "yeer");
+            return (Criteria) this;
+        }
+
+        public Criteria andYeerNotBetween(Integer value1, Integer value2) {
+            addCriterion("yeer not between", value1, value2, "yeer");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

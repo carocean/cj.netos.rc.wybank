@@ -46,15 +46,6 @@ public class ExchangeService implements IExchangeService {
         exchangeIndex.setId(IdWorker.nextId());
         exchangeIndex.setBankid(bankid);
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-
-        exchangeIndex.setDay(calendar.get(Calendar.DAY_OF_MONTH));
-        exchangeIndex.setMonth(calendar.get(Calendar.MONTH));
-        exchangeIndex.setYeer(calendar.get(Calendar.YEAR));
-        exchangeIndex.setWeekday(calendar.get(Calendar.WEEK_OF_YEAR));
-        exchangeIndex.setSeason(exchangeIndex.getMonth() % 4);
-
         exchangeIndex.setExchangeFund(0L);
         exchangeIndex.setExchangeCount(0L);
         exchangeIndex.setReclaimStock(new BigDecimal(0.0));
@@ -65,6 +56,16 @@ public class ExchangeService implements IExchangeService {
 
     private void addLedger(ExchangeRecord record, ExchangeIndex exchangeIndex) {
         ExchangeLedger ledger = new ExchangeLedger();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+
+        ledger.setDay(calendar.get(Calendar.DAY_OF_MONTH));
+        ledger.setMonth(calendar.get(Calendar.MONTH));
+        ledger.setYeer(calendar.get(Calendar.YEAR));
+        ledger.setWeekday(calendar.get(Calendar.WEEK_OF_YEAR));
+        ledger.setSeason(ledger.getMonth() % 4);
+
         ledger.setSn(IdWorker.nextId());
         ledger.setAmount(record.getAmount());
         ledger.setBankid(record.getBankid());
@@ -87,11 +88,6 @@ public class ExchangeService implements IExchangeService {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
 
-        exchangeIndex.setDay(calendar.get(Calendar.DAY_OF_MONTH));
-        exchangeIndex.setMonth(calendar.get(Calendar.MONTH));
-        exchangeIndex.setYeer(calendar.get(Calendar.YEAR));
-        exchangeIndex.setWeekday(calendar.get(Calendar.WEEK_OF_YEAR));
-        exchangeIndex.setSeason(exchangeIndex.getMonth() % 4);
 
         exchangeIndex.setExchangeFund(exchangeIndex.getExchangeFund() + record.getAmount());
         exchangeIndex.setExchangeCount(exchangeIndex.getExchangeCount() + 1);

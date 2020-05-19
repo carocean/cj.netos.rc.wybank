@@ -46,15 +46,6 @@ public class PurchaseService implements IPurchaseService {
         purchIndex.setId(IdWorker.nextId());
         purchIndex.setBankid(bankid);
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-
-        purchIndex.setDay(calendar.get(Calendar.DAY_OF_MONTH));
-        purchIndex.setMonth(calendar.get(Calendar.MONTH));
-        purchIndex.setYeer(calendar.get(Calendar.YEAR));
-        purchIndex.setWeekday(calendar.get(Calendar.WEEK_OF_YEAR));
-        purchIndex.setSeason(purchIndex.getMonth() % 4);
-
         purchIndex.setPurchFund(0L);
         purchIndex.setPurchCount(0L);
         purchIndex.setIssueStock(new BigDecimal(0.0));
@@ -71,6 +62,15 @@ public class PurchaseService implements IPurchaseService {
 
     private void addLedger(PurchaseRecord record, PurchIndex purchIndex) {
         PurchLedger ledger = new PurchLedger();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        ledger.setDay(calendar.get(Calendar.DAY_OF_MONTH));
+        ledger.setMonth(calendar.get(Calendar.MONTH));
+        ledger.setYeer(calendar.get(Calendar.YEAR));
+        ledger.setWeekday(calendar.get(Calendar.WEEK_OF_YEAR));
+        ledger.setSeason(ledger.getMonth() % 4);
+
         ledger.setSn(IdWorker.nextId());
         ledger.setAmount(record.getAmount());
         ledger.setBankid(record.getBankid());
@@ -94,14 +94,6 @@ public class PurchaseService implements IPurchaseService {
     }
 
     private void updateIndex(PurchaseRecord record, PurchIndex purchIndex) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-
-        purchIndex.setDay(calendar.get(Calendar.DAY_OF_MONTH));
-        purchIndex.setMonth(calendar.get(Calendar.MONTH));
-        purchIndex.setYeer(calendar.get(Calendar.YEAR));
-        purchIndex.setWeekday(calendar.get(Calendar.WEEK_OF_YEAR));
-        purchIndex.setSeason(purchIndex.getMonth() % 4);
 
         purchIndex.setPurchFund(purchIndex.getPurchFund() + record.getAmount());
         purchIndex.setPurchCount(purchIndex.getPurchCount() + 1);

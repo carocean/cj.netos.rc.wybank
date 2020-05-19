@@ -4,11 +4,6 @@
   <resultMap id="BaseResultMap" type="cj.netos.rc.wybank.model.ShuntinIndex">
     <!-- @mbg.generated: generated automatically, do not modify! -->
     <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="day" jdbcType="INTEGER" property="day" />
-    <result column="weekday" jdbcType="INTEGER" property="weekday" />
-    <result column="month" jdbcType="INTEGER" property="month" />
-    <result column="season" jdbcType="INTEGER" property="season" />
-    <result column="yeer" jdbcType="INTEGER" property="yeer" />
     <result column="amount" jdbcType="BIGINT" property="amount" />
     <result column="bankid" jdbcType="VARCHAR" property="bankid" />
     <result column="shunter" jdbcType="VARCHAR" property="shunter" />
@@ -75,7 +70,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!-- @mbg.generated: generated automatically, do not modify! -->
-    id, `day`, weekday, `month`, season, yeer, amount, bankid, shunter
+    id, amount, bankid, shunter
   </sql>
   <select id="selectByExample" parameterType="cj.netos.rc.wybank.model.ShuntinIndexExample" resultMap="BaseResultMap">
     <!-- @mbg.generated: generated automatically, do not modify! -->
@@ -113,14 +108,10 @@
   </delete>
   <insert id="insert" parameterType="cj.netos.rc.wybank.model.ShuntinIndex">
     <!-- @mbg.generated: generated automatically, do not modify! -->
-    insert into shuntin_index (id, `day`, weekday, 
-      `month`, season, yeer, 
-      amount, bankid, shunter
-      )
-    values (#{id,jdbcType=VARCHAR}, #{day,jdbcType=INTEGER}, #{weekday,jdbcType=INTEGER}, 
-      #{month,jdbcType=INTEGER}, #{season,jdbcType=INTEGER}, #{yeer,jdbcType=INTEGER}, 
-      #{amount,jdbcType=BIGINT}, #{bankid,jdbcType=VARCHAR}, #{shunter,jdbcType=VARCHAR}
-      )
+    insert into shuntin_index (id, amount, bankid, 
+      shunter)
+    values (#{id,jdbcType=VARCHAR}, #{amount,jdbcType=BIGINT}, #{bankid,jdbcType=VARCHAR}, 
+      #{shunter,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cj.netos.rc.wybank.model.ShuntinIndex">
     <!-- @mbg.generated: generated automatically, do not modify! -->
@@ -128,21 +119,6 @@
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
-      </if>
-      <if test="day != null">
-        `day`,
-      </if>
-      <if test="weekday != null">
-        weekday,
-      </if>
-      <if test="month != null">
-        `month`,
-      </if>
-      <if test="season != null">
-        season,
-      </if>
-      <if test="yeer != null">
-        yeer,
       </if>
       <if test="amount != null">
         amount,
@@ -157,21 +133,6 @@
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="day != null">
-        #{day,jdbcType=INTEGER},
-      </if>
-      <if test="weekday != null">
-        #{weekday,jdbcType=INTEGER},
-      </if>
-      <if test="month != null">
-        #{month,jdbcType=INTEGER},
-      </if>
-      <if test="season != null">
-        #{season,jdbcType=INTEGER},
-      </if>
-      <if test="yeer != null">
-        #{yeer,jdbcType=INTEGER},
       </if>
       <if test="amount != null">
         #{amount,jdbcType=BIGINT},
@@ -198,21 +159,6 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.day != null">
-        `day` = #{record.day,jdbcType=INTEGER},
-      </if>
-      <if test="record.weekday != null">
-        weekday = #{record.weekday,jdbcType=INTEGER},
-      </if>
-      <if test="record.month != null">
-        `month` = #{record.month,jdbcType=INTEGER},
-      </if>
-      <if test="record.season != null">
-        season = #{record.season,jdbcType=INTEGER},
-      </if>
-      <if test="record.yeer != null">
-        yeer = #{record.yeer,jdbcType=INTEGER},
-      </if>
       <if test="record.amount != null">
         amount = #{record.amount,jdbcType=BIGINT},
       </if>
@@ -231,11 +177,6 @@
     <!-- @mbg.generated: generated automatically, do not modify! -->
     update shuntin_index
     set id = #{record.id,jdbcType=VARCHAR},
-      `day` = #{record.day,jdbcType=INTEGER},
-      weekday = #{record.weekday,jdbcType=INTEGER},
-      `month` = #{record.month,jdbcType=INTEGER},
-      season = #{record.season,jdbcType=INTEGER},
-      yeer = #{record.yeer,jdbcType=INTEGER},
       amount = #{record.amount,jdbcType=BIGINT},
       bankid = #{record.bankid,jdbcType=VARCHAR},
       shunter = #{record.shunter,jdbcType=VARCHAR}
@@ -247,21 +188,6 @@
     <!-- @mbg.generated: generated automatically, do not modify! -->
     update shuntin_index
     <set>
-      <if test="day != null">
-        `day` = #{day,jdbcType=INTEGER},
-      </if>
-      <if test="weekday != null">
-        weekday = #{weekday,jdbcType=INTEGER},
-      </if>
-      <if test="month != null">
-        `month` = #{month,jdbcType=INTEGER},
-      </if>
-      <if test="season != null">
-        season = #{season,jdbcType=INTEGER},
-      </if>
-      <if test="yeer != null">
-        yeer = #{yeer,jdbcType=INTEGER},
-      </if>
       <if test="amount != null">
         amount = #{amount,jdbcType=BIGINT},
       </if>
@@ -277,12 +203,7 @@
   <update id="updateByPrimaryKey" parameterType="cj.netos.rc.wybank.model.ShuntinIndex">
     <!-- @mbg.generated: generated automatically, do not modify! -->
     update shuntin_index
-    set `day` = #{day,jdbcType=INTEGER},
-      weekday = #{weekday,jdbcType=INTEGER},
-      `month` = #{month,jdbcType=INTEGER},
-      season = #{season,jdbcType=INTEGER},
-      yeer = #{yeer,jdbcType=INTEGER},
-      amount = #{amount,jdbcType=BIGINT},
+    set amount = #{amount,jdbcType=BIGINT},
       bankid = #{bankid,jdbcType=VARCHAR},
       shunter = #{shunter,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}

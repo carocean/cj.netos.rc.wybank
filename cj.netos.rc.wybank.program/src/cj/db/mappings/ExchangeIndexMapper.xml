@@ -4,11 +4,6 @@
   <resultMap id="BaseResultMap" type="cj.netos.rc.wybank.model.ExchangeIndex">
     <!-- @mbg.generated: generated automatically, do not modify! -->
     <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="day" jdbcType="INTEGER" property="day" />
-    <result column="weekday" jdbcType="INTEGER" property="weekday" />
-    <result column="month" jdbcType="INTEGER" property="month" />
-    <result column="season" jdbcType="INTEGER" property="season" />
-    <result column="yeer" jdbcType="INTEGER" property="yeer" />
     <result column="exchange_fund" jdbcType="BIGINT" property="exchangeFund" />
     <result column="reclaim_stock" jdbcType="DECIMAL" property="reclaimStock" />
     <result column="exchange_count" jdbcType="BIGINT" property="exchangeCount" />
@@ -76,8 +71,7 @@
   </sql>
   <sql id="Base_Column_List">
     <!-- @mbg.generated: generated automatically, do not modify! -->
-    id, `day`, weekday, `month`, season, yeer, exchange_fund, reclaim_stock, exchange_count, 
-    bankid
+    id, exchange_fund, reclaim_stock, exchange_count, bankid
   </sql>
   <select id="selectByExample" parameterType="cj.netos.rc.wybank.model.ExchangeIndexExample" resultMap="BaseResultMap">
     <!-- @mbg.generated: generated automatically, do not modify! -->
@@ -115,14 +109,10 @@
   </delete>
   <insert id="insert" parameterType="cj.netos.rc.wybank.model.ExchangeIndex">
     <!-- @mbg.generated: generated automatically, do not modify! -->
-    insert into exchange_index (id, `day`, weekday, 
-      `month`, season, yeer, 
-      exchange_fund, reclaim_stock, exchange_count, 
-      bankid)
-    values (#{id,jdbcType=VARCHAR}, #{day,jdbcType=INTEGER}, #{weekday,jdbcType=INTEGER}, 
-      #{month,jdbcType=INTEGER}, #{season,jdbcType=INTEGER}, #{yeer,jdbcType=INTEGER}, 
-      #{exchangeFund,jdbcType=BIGINT}, #{reclaimStock,jdbcType=DECIMAL}, #{exchangeCount,jdbcType=BIGINT}, 
-      #{bankid,jdbcType=VARCHAR})
+    insert into exchange_index (id, exchange_fund, reclaim_stock, 
+      exchange_count, bankid)
+    values (#{id,jdbcType=VARCHAR}, #{exchangeFund,jdbcType=BIGINT}, #{reclaimStock,jdbcType=DECIMAL}, 
+      #{exchangeCount,jdbcType=BIGINT}, #{bankid,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cj.netos.rc.wybank.model.ExchangeIndex">
     <!-- @mbg.generated: generated automatically, do not modify! -->
@@ -130,21 +120,6 @@
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
-      </if>
-      <if test="day != null">
-        `day`,
-      </if>
-      <if test="weekday != null">
-        weekday,
-      </if>
-      <if test="month != null">
-        `month`,
-      </if>
-      <if test="season != null">
-        season,
-      </if>
-      <if test="yeer != null">
-        yeer,
       </if>
       <if test="exchangeFund != null">
         exchange_fund,
@@ -162,21 +137,6 @@
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="day != null">
-        #{day,jdbcType=INTEGER},
-      </if>
-      <if test="weekday != null">
-        #{weekday,jdbcType=INTEGER},
-      </if>
-      <if test="month != null">
-        #{month,jdbcType=INTEGER},
-      </if>
-      <if test="season != null">
-        #{season,jdbcType=INTEGER},
-      </if>
-      <if test="yeer != null">
-        #{yeer,jdbcType=INTEGER},
       </if>
       <if test="exchangeFund != null">
         #{exchangeFund,jdbcType=BIGINT},
@@ -206,21 +166,6 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.day != null">
-        `day` = #{record.day,jdbcType=INTEGER},
-      </if>
-      <if test="record.weekday != null">
-        weekday = #{record.weekday,jdbcType=INTEGER},
-      </if>
-      <if test="record.month != null">
-        `month` = #{record.month,jdbcType=INTEGER},
-      </if>
-      <if test="record.season != null">
-        season = #{record.season,jdbcType=INTEGER},
-      </if>
-      <if test="record.yeer != null">
-        yeer = #{record.yeer,jdbcType=INTEGER},
-      </if>
       <if test="record.exchangeFund != null">
         exchange_fund = #{record.exchangeFund,jdbcType=BIGINT},
       </if>
@@ -242,11 +187,6 @@
     <!-- @mbg.generated: generated automatically, do not modify! -->
     update exchange_index
     set id = #{record.id,jdbcType=VARCHAR},
-      `day` = #{record.day,jdbcType=INTEGER},
-      weekday = #{record.weekday,jdbcType=INTEGER},
-      `month` = #{record.month,jdbcType=INTEGER},
-      season = #{record.season,jdbcType=INTEGER},
-      yeer = #{record.yeer,jdbcType=INTEGER},
       exchange_fund = #{record.exchangeFund,jdbcType=BIGINT},
       reclaim_stock = #{record.reclaimStock,jdbcType=DECIMAL},
       exchange_count = #{record.exchangeCount,jdbcType=BIGINT},
@@ -259,21 +199,6 @@
     <!-- @mbg.generated: generated automatically, do not modify! -->
     update exchange_index
     <set>
-      <if test="day != null">
-        `day` = #{day,jdbcType=INTEGER},
-      </if>
-      <if test="weekday != null">
-        weekday = #{weekday,jdbcType=INTEGER},
-      </if>
-      <if test="month != null">
-        `month` = #{month,jdbcType=INTEGER},
-      </if>
-      <if test="season != null">
-        season = #{season,jdbcType=INTEGER},
-      </if>
-      <if test="yeer != null">
-        yeer = #{yeer,jdbcType=INTEGER},
-      </if>
       <if test="exchangeFund != null">
         exchange_fund = #{exchangeFund,jdbcType=BIGINT},
       </if>
@@ -292,12 +217,7 @@
   <update id="updateByPrimaryKey" parameterType="cj.netos.rc.wybank.model.ExchangeIndex">
     <!-- @mbg.generated: generated automatically, do not modify! -->
     update exchange_index
-    set `day` = #{day,jdbcType=INTEGER},
-      weekday = #{weekday,jdbcType=INTEGER},
-      `month` = #{month,jdbcType=INTEGER},
-      season = #{season,jdbcType=INTEGER},
-      yeer = #{yeer,jdbcType=INTEGER},
-      exchange_fund = #{exchangeFund,jdbcType=BIGINT},
+    set exchange_fund = #{exchangeFund,jdbcType=BIGINT},
       reclaim_stock = #{reclaimStock,jdbcType=DECIMAL},
       exchange_count = #{exchangeCount,jdbcType=BIGINT},
       bankid = #{bankid,jdbcType=VARCHAR}

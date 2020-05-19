@@ -74,6 +74,36 @@ public class ExchangeLedger {
      */
     private Long exchangeCount;
 
+    /**
+     * Column: day
+     * Remark: 天，1-31
+     */
+    private Integer day;
+
+    /**
+     * Column: weekday
+     * Remark: 在一周内第几天，1-7
+     */
+    private Integer weekday;
+
+    /**
+     * Column: month
+     * Remark: 月，1-12
+     */
+    private Integer month;
+
+    /**
+     * Column: season
+     * Remark: 季，0-3
+     */
+    private Integer season;
+
+    /**
+     * Column: yeer
+     * Remark: 年
+     */
+    private Integer yeer;
+
     public String getSn() {
         return sn;
     }
@@ -168,5 +198,45 @@ public class ExchangeLedger {
 
     public void setExchangeCount(Long exchangeCount) {
         this.exchangeCount = exchangeCount;
+    }
+
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {
+        this.day = day;
+    }
+
+    public Integer getWeekday() {
+        return weekday;
+    }
+
+    public void setWeekday(Integer weekday) {
+        this.weekday = weekday;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
+
+    public Integer getSeason() {
+        return season;
+    }
+
+    public void setSeason(Integer season) {
+        this.season = season;
+    }
+
+    public Integer getYeer() {
+        return yeer;
+    }
+
+    public void setYeer(Integer yeer) {
+        this.yeer = yeer;
     }
 }

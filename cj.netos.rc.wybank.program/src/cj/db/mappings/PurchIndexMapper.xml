@@ -4,11 +4,6 @@
   <resultMap id="BaseResultMap" type="cj.netos.rc.wybank.model.PurchIndex">
     <!-- @mbg.generated: generated automatically, do not modify! -->
     <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="day" jdbcType="INTEGER" property="day" />
-    <result column="weekday" jdbcType="INTEGER" property="weekday" />
-    <result column="month" jdbcType="INTEGER" property="month" />
-    <result column="season" jdbcType="INTEGER" property="season" />
-    <result column="yeer" jdbcType="INTEGER" property="yeer" />
     <result column="purch_fund" jdbcType="BIGINT" property="purchFund" />
     <result column="issue_stock" jdbcType="DECIMAL" property="issueStock" />
     <result column="principal" jdbcType="BIGINT" property="principal" />
@@ -84,9 +79,8 @@
   </sql>
   <sql id="Base_Column_List">
     <!-- @mbg.generated: generated automatically, do not modify! -->
-    id, `day`, weekday, `month`, season, yeer, purch_fund, issue_stock, principal, reserve, 
-    free_amount, fee_amount, purch_count, min_record_amount, min_record_sn, max_record_amount, 
-    max_record_sn, bankid
+    id, purch_fund, issue_stock, principal, reserve, free_amount, fee_amount, purch_count, 
+    min_record_amount, min_record_sn, max_record_amount, max_record_sn, bankid
   </sql>
   <select id="selectByExample" parameterType="cj.netos.rc.wybank.model.PurchIndexExample" resultMap="BaseResultMap">
     <!-- @mbg.generated: generated automatically, do not modify! -->
@@ -124,20 +118,16 @@
   </delete>
   <insert id="insert" parameterType="cj.netos.rc.wybank.model.PurchIndex">
     <!-- @mbg.generated: generated automatically, do not modify! -->
-    insert into purch_index (id, `day`, weekday, 
-      `month`, season, yeer, 
-      purch_fund, issue_stock, principal, 
-      reserve, free_amount, fee_amount, 
-      purch_count, min_record_amount, min_record_sn, 
-      max_record_amount, max_record_sn, bankid
-      )
-    values (#{id,jdbcType=VARCHAR}, #{day,jdbcType=INTEGER}, #{weekday,jdbcType=INTEGER}, 
-      #{month,jdbcType=INTEGER}, #{season,jdbcType=INTEGER}, #{yeer,jdbcType=INTEGER}, 
-      #{purchFund,jdbcType=BIGINT}, #{issueStock,jdbcType=DECIMAL}, #{principal,jdbcType=BIGINT}, 
-      #{reserve,jdbcType=BIGINT}, #{freeAmount,jdbcType=BIGINT}, #{feeAmount,jdbcType=BIGINT}, 
-      #{purchCount,jdbcType=BIGINT}, #{minRecordAmount,jdbcType=BIGINT}, #{minRecordSn,jdbcType=VARCHAR}, 
-      #{maxRecordAmount,jdbcType=BIGINT}, #{maxRecordSn,jdbcType=VARCHAR}, #{bankid,jdbcType=VARCHAR}
-      )
+    insert into purch_index (id, purch_fund, issue_stock, 
+      principal, reserve, free_amount, 
+      fee_amount, purch_count, min_record_amount, 
+      min_record_sn, max_record_amount, max_record_sn, 
+      bankid)
+    values (#{id,jdbcType=VARCHAR}, #{purchFund,jdbcType=BIGINT}, #{issueStock,jdbcType=DECIMAL}, 
+      #{principal,jdbcType=BIGINT}, #{reserve,jdbcType=BIGINT}, #{freeAmount,jdbcType=BIGINT}, 
+      #{feeAmount,jdbcType=BIGINT}, #{purchCount,jdbcType=BIGINT}, #{minRecordAmount,jdbcType=BIGINT}, 
+      #{minRecordSn,jdbcType=VARCHAR}, #{maxRecordAmount,jdbcType=BIGINT}, #{maxRecordSn,jdbcType=VARCHAR}, 
+      #{bankid,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cj.netos.rc.wybank.model.PurchIndex">
     <!-- @mbg.generated: generated automatically, do not modify! -->
@@ -145,21 +135,6 @@
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
-      </if>
-      <if test="day != null">
-        `day`,
-      </if>
-      <if test="weekday != null">
-        weekday,
-      </if>
-      <if test="month != null">
-        `month`,
-      </if>
-      <if test="season != null">
-        season,
-      </if>
-      <if test="yeer != null">
-        yeer,
       </if>
       <if test="purchFund != null">
         purch_fund,
@@ -201,21 +176,6 @@
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=VARCHAR},
-      </if>
-      <if test="day != null">
-        #{day,jdbcType=INTEGER},
-      </if>
-      <if test="weekday != null">
-        #{weekday,jdbcType=INTEGER},
-      </if>
-      <if test="month != null">
-        #{month,jdbcType=INTEGER},
-      </if>
-      <if test="season != null">
-        #{season,jdbcType=INTEGER},
-      </if>
-      <if test="yeer != null">
-        #{yeer,jdbcType=INTEGER},
       </if>
       <if test="purchFund != null">
         #{purchFund,jdbcType=BIGINT},
@@ -269,21 +229,6 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.day != null">
-        `day` = #{record.day,jdbcType=INTEGER},
-      </if>
-      <if test="record.weekday != null">
-        weekday = #{record.weekday,jdbcType=INTEGER},
-      </if>
-      <if test="record.month != null">
-        `month` = #{record.month,jdbcType=INTEGER},
-      </if>
-      <if test="record.season != null">
-        season = #{record.season,jdbcType=INTEGER},
-      </if>
-      <if test="record.yeer != null">
-        yeer = #{record.yeer,jdbcType=INTEGER},
-      </if>
       <if test="record.purchFund != null">
         purch_fund = #{record.purchFund,jdbcType=BIGINT},
       </if>
@@ -329,11 +274,6 @@
     <!-- @mbg.generated: generated automatically, do not modify! -->
     update purch_index
     set id = #{record.id,jdbcType=VARCHAR},
-      `day` = #{record.day,jdbcType=INTEGER},
-      weekday = #{record.weekday,jdbcType=INTEGER},
-      `month` = #{record.month,jdbcType=INTEGER},
-      season = #{record.season,jdbcType=INTEGER},
-      yeer = #{record.yeer,jdbcType=INTEGER},
       purch_fund = #{record.purchFund,jdbcType=BIGINT},
       issue_stock = #{record.issueStock,jdbcType=DECIMAL},
       principal = #{record.principal,jdbcType=BIGINT},
@@ -354,21 +294,6 @@
     <!-- @mbg.generated: generated automatically, do not modify! -->
     update purch_index
     <set>
-      <if test="day != null">
-        `day` = #{day,jdbcType=INTEGER},
-      </if>
-      <if test="weekday != null">
-        weekday = #{weekday,jdbcType=INTEGER},
-      </if>
-      <if test="month != null">
-        `month` = #{month,jdbcType=INTEGER},
-      </if>
-      <if test="season != null">
-        season = #{season,jdbcType=INTEGER},
-      </if>
-      <if test="yeer != null">
-        yeer = #{yeer,jdbcType=INTEGER},
-      </if>
       <if test="purchFund != null">
         purch_fund = #{purchFund,jdbcType=BIGINT},
       </if>
@@ -411,12 +336,7 @@
   <update id="updateByPrimaryKey" parameterType="cj.netos.rc.wybank.model.PurchIndex">
     <!-- @mbg.generated: generated automatically, do not modify! -->
     update purch_index
-    set `day` = #{day,jdbcType=INTEGER},
-      weekday = #{weekday,jdbcType=INTEGER},
-      `month` = #{month,jdbcType=INTEGER},
-      season = #{season,jdbcType=INTEGER},
-      yeer = #{yeer,jdbcType=INTEGER},
-      purch_fund = #{purchFund,jdbcType=BIGINT},
+    set purch_fund = #{purchFund,jdbcType=BIGINT},
       issue_stock = #{issueStock,jdbcType=DECIMAL},
       principal = #{principal,jdbcType=BIGINT},
       reserve = #{reserve,jdbcType=BIGINT},

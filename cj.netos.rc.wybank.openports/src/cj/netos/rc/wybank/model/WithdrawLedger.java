@@ -55,10 +55,46 @@ public class WithdrawLedger {
     private String shunter;
 
     /**
+     * Column: remain_fund
+     * Remark: 提现后的总资金
+     */
+    private String remainFund;
+
+    /**
      * Column: workday
      * Remark: 会计日期
      */
     private String workday;
+
+    /**
+     * Column: day
+     * Remark: 天，1-31
+     */
+    private Integer day;
+
+    /**
+     * Column: weekday
+     * Remark: 星期几 1-7
+     */
+    private Integer weekday;
+
+    /**
+     * Column: month
+     * Remark: 月 1-12
+     */
+    private Integer month;
+
+    /**
+     * Column: season
+     * Remark: 季 0-3
+     */
+    private Integer season;
+
+    /**
+     * Column: yeer
+     * Remark: 年
+     */
+    private Integer yeer;
 
     public String getSn() {
         return sn;
@@ -132,11 +168,59 @@ public class WithdrawLedger {
         this.shunter = shunter == null ? null : shunter.trim();
     }
 
+    public String getRemainFund() {
+        return remainFund;
+    }
+
+    public void setRemainFund(String remainFund) {
+        this.remainFund = remainFund == null ? null : remainFund.trim();
+    }
+
     public String getWorkday() {
         return workday;
     }
 
     public void setWorkday(String workday) {
         this.workday = workday == null ? null : workday.trim();
+    }
+
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {
+        this.day = day;
+    }
+
+    public Integer getWeekday() {
+        return weekday;
+    }
+
+    public void setWeekday(Integer weekday) {
+        this.weekday = weekday;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
+
+    public Integer getSeason() {
+        return season;
+    }
+
+    public void setSeason(Integer season) {
+        this.season = season;
+    }
+
+    public Integer getYeer() {
+        return yeer;
+    }
+
+    public void setYeer(Integer yeer) {
+        this.yeer = yeer;
     }
 }
